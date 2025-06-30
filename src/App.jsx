@@ -133,11 +133,11 @@ const honorGifts = [
     joke: 'Suíte master com vista incrível, tratamento de spa completo, jantar privativo, mordomias de rei e rainha e brinde deluxe. Uma noite digna de contos!'
   },
   {
-    value: 5000,
+    value: 3500,
     title: 'Patrono Lua de Mel',
     img: patronoImg,
     icon: '🏆',
-    pix: '00020126360014BR.GOV.BCB.PIX0114+554199958112552040000530398654075000.005802BR5918Poliana Lara Braun6008Curitiba62110507Patrono63046928',
+    pix: '00020126360014BR.GOV.BCB.PIX0114+554199958112552040000530398654073500.005802BR5918Poliana Lara Braun6008Curitiba62170513PatronoMaximo630487F9',
     joke: 'Seu nome eternizado no nosso álbum, vídeo exclusivo de agradecimento, presente surpresa premium, certificado digital de patrono e spoilers da viagem em primeira mão!'
   },
 ];
@@ -263,7 +263,7 @@ const App = () => {
   }, [modalGift]);
 
   return (
-    <div className={`font-sans text-stone-800 min-h-screen overflow-x-hidden ${theme==='dark' ? 'bg-animated-dark' : 'bg-animated'}`}>
+    <div className="font-sans text-stone-800 min-h-screen overflow-x-hidden bg-paper">
       {/* Hearts rain */}
       {rainHearts.map((id)=>(
         <AiFillHeart key={id} className="text-rose/70 fixed left-1/2 rain-heart" style={{fontSize:`${14+Math.random()*20}px`, marginLeft:`${(Math.random()*200-100)}px`}} />
@@ -306,12 +306,18 @@ const App = () => {
         </p>
         <div className="grid sm:grid-cols-3 gap-8 items-stretch">
           {honorGifts.map((gift) => (
-            <motion.div key={gift.value} whileHover={{ scale: 1.09, rotateX: -4, rotateY: 4 }} whileTap={{ scale: 0.97 }} className="cursor-pointer select-none [perspective:1000px]">
+            <motion.div key={gift.value} className="cursor-pointer select-none [perspective:1000px]">
               <div
-                onClick={() => {console.log('analytics: open_honor_gift_modal', {title:gift.title,value:gift.value}); setModalGift(gift)} }
                 className="gift-card premium-gold-card border-4 border-yellow-400 transition-transform min-h-[560px] p-6"
               >
-                <span className="absolute top-4 right-4 bg-yellow-300 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-gold animate-premium-float border border-yellow-400">Honra</span>
+                <span
+                  className="absolute top-4 right-4 text-black text-xs font-bold px-3 py-1 rounded-full shadow-gold border border-yellow-600"
+                  style={{
+                    background: 'linear-gradient(135deg,#ffe066 0%,#ffd53b 100%)',
+                  }}
+                >
+                  Honra
+                </span>
                 <div className="gift-img w-[220px] h-[220px] flex items-center justify-center bg-white border-4 border-white rounded-[1rem] mb-4 text-5xl text-yellow-500 premium-gold-placeholder" style={{boxShadow:'0 2px 6px rgba(0,0,0,0.05)'}}>
                   {gift.img
                     ? <img src={gift.img} alt={gift.title} className="w-full h-full object-cover rounded-[1rem]" />
@@ -323,7 +329,12 @@ const App = () => {
                   <p className="text-sm text-stone-700 mb-3 max-w-xs mx-auto leading-relaxed text-center">{gift.joke}</p>
                   <span className="gift-value text-yellow-700 premium-gold-value text-center block">R$ {gift.value}</span>
                 </div>
-                <button className="gift-btn premium-gold-btn bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 text-black font-extrabold animate-gold-glow mt-2">Quero presentear com Honra!</button>
+                <button
+                  onClick={() => {console.log('analytics: open_honor_gift_modal', {title:gift.title,value:gift.value}); setModalGift(gift);} }
+                  className="gift-btn premium-gold-btn bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 text-black font-extrabold animate-gold-glow mt-2"
+                >
+                  Quero presentear com Honra!
+                </button>
               </div>
             </motion.div>
           ))}
@@ -355,9 +366,8 @@ const App = () => {
         </div>
         <div className="grid sm:grid-cols-3 gap-6 items-stretch">
           {experiences.map((exp) => (
-            <motion.div key={exp.value} whileHover={{ scale: 1.07, rotateX: -5, rotateY: 5 }} whileTap={{ scale: 0.95 }} className="cursor-pointer select-none [perspective:1000px]">
+            <motion.div key={exp.value} className="cursor-pointer select-none [perspective:1000px]">
               <div
-                onClick={() => {console.log('analytics: open_gift_modal', {title:exp.title,value:exp.value}); setModalGift(exp)} }
                 className="gift-card p-6 text-center relative flex flex-col h-full"
               >
                 {(exp.popular || exp.legendary) && (
@@ -372,7 +382,12 @@ aqui</div>)}
                   <p className="text-sm text-stone-700 mb-3 max-w-xs mx-auto leading-relaxed">{exp.joke}</p>
                   <span className="gift-value">R$ {exp.value}</span>
                 </div>
-                <button className="gift-btn w-full">Quero presentear!</button>
+                <button
+                  onClick={() => {console.log('analytics: open_gift_modal', {title:exp.title,value:exp.value}); setModalGift(exp);} }
+                  className="gift-btn w-full"
+                >
+                  Quero presentear!
+                </button>
               </div>
             </motion.div>
           ))}
@@ -507,7 +522,7 @@ aqui</div>)}
         >
           {possibilities.map((p,i)=>(
             <SwiperSlide key={i}>
-              <motion.div whileHover={{y:-6}} className="bg-white dark:bg-stone-800 rounded-3xl p-6 shadow-sm text-center h-full flex flex-col justify-center">
+              <motion.div className="bg-white dark:bg-stone-800 rounded-3xl p-6 shadow-sm text-center h-full flex flex-col justify-center">
                 <div className="text-4xl mb-3">{p.icon}</div>
                 <p className="text-sm leading-relaxed">{p.text}</p>
               </motion.div>
@@ -560,7 +575,7 @@ aqui</div>)}
               </motion.p>
 
               <a
-                href={`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=Acabei%20de%20presentear%20${modalGift.title}%20para%20os%20noivos!`}
+                href="https://wa.link/8w5ab6"
                 className="underline text-sm text-rose-700 font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
