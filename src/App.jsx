@@ -21,7 +21,7 @@ import patronoImg from './assets/patrono.png';
 
 // ---------- Configuráveis (edite aqui) -----------------
 const pixKey = '00020126...SEU_PIX...';
-const whatsappNumber = '+5511999999999';
+const whatsappNumber = '41 99242-7268';
 const pixCodes = {
   'Parque das Aves': '00020126360014BR.GOV.BCB.PIX0114+55419995811255204000053039865406350.005802BR5918Poliana Lara Braun6008Curitiba62170513ParqueDasAves6304B6C6',
   'Passeio nas Cataratas': '00020126360014BR.GOV.BCB.PIX0114+55419995811255204000053039865406600.005802BR5918Poliana Lara Braun6008Curitiba62200516PasseioCataratas6304E935',
@@ -39,28 +39,12 @@ const customPixCodes = {
 
 const experiences = [
   {
-    value: 600,
-    title: 'Passeio nas Cataratas',
-    icon: '💦',
-    img: cataratasImg,
-    joke: 'Selfie molhada, arco-íris garantido e muita risada nas alturas!',
-    popular: true
-  },
-  {
-    value: 800,
-    title: 'Macuco Safari',
-    icon: '🛶',
-    img: macucoImg,
-    joke: 'Ajude o Léo a voltar ensopado! Prometemos vídeo de agradecimento nos stories.',
-    legendary: true
-  },
-  {
     value: 350,
     title: 'Parque das Aves',
     icon: '🦜',
     img: avesImg,
     joke: 'Selfie divertida com arara? Só falta seu empurrãozinho para acontecer!',
-    popular: true
+    popular: true,
   },
   {
     value: 500,
@@ -70,12 +54,28 @@ const experiences = [
     joke: 'Brinde de vinho e dancinha de tango exclusiva para quem bancar essa experiência.',
   },
   {
+    value: 600,
+    title: 'Passeio nas Cataratas',
+    icon: '💦',
+    img: cataratasImg,
+    joke: 'Selfie molhada, arco-íris garantido e muita risada nas alturas!',
+    popular: true,
+  },
+  {
+    value: 800,
+    title: 'Macuco Safari',
+    icon: '🛶',
+    img: macucoImg,
+    joke: 'Ajude o Léo a voltar ensopado! Prometemos vídeo de agradecimento nos stories.',
+    legendary: true,
+  },
+  {
     value: 1000,
     title: 'Cota Secreta do Amor',
     icon: '🎁',
     img: presenteImg,
     joke: 'Ousou liberar? Surpresa VIP misteriosa na lua de mel e vídeo exclusivo de agradecimento.',
-    legendary: true
+    legendary: true,
   },
 ];
 
@@ -343,7 +343,7 @@ const App = () => {
 
       {/* GIFTS */}
       <section id="presente" className="py-16 px-6 md:px-20 bg-paper">
-        <h2 className="text-3xl font-semibold text-center mb-6">Presenteie com Amor (e Riso) 😄</h2>
+        <h2 className="text-3xl font-semibold text-center mb-6">Presenteie com Amor 😄</h2>
         <p className="text-center max-w-xl mx-auto mb-8">Nosso maior sonho? Uma lua de mel épica em Foz do Iguaçu! Se quiser deixar nossa viagem lendária, escolha abaixo uma experiência para patrocinar. Sua presença é tudo — mas sua contribuição pode transformar cada passeio em algo inesquecível! 🌈✨</p>
         {/* Barra de Progresso moderna */}
         <div className="flex justify-center mb-8">
@@ -534,7 +534,7 @@ aqui</div>)}
       {/* FOOTER */}
       <footer className="py-8 text-center text-sm bg-paper text-stone-800 px-4 relative overflow-hidden">
         <p className="mb-2">Obrigado por fazer parte desse capítulo!</p>
-        <p>Dúvidas? Fale com nossa cerimonialista: <a href={`https://wa.me/${whatsappNumber.replace(/\D/g, '')}`} className="underline">{whatsappNumber}</a></p>
+        <p>Dúvidas? Fale com nossa cerimonialista: <a href="https://wa.me/+5541992427268" className="underline">{whatsappNumber}</a></p>
       </footer>
 
       {/* MODAL */}
@@ -589,7 +589,7 @@ aqui</div>)}
 
       {/* Floating share */}
       {!modalGift && (
-        <a href={`https://wa.me/?text=Confere%20o%20site%20do%20casório%20do%20Léo%20e%20Poli!%20${encodeURIComponent(window.location.href)}`} target="_blank" rel="noopener noreferrer" title="Falar com os noivos" className="float-btn sm:hidden">
+        <a href="https://wa.link/8w5ab6" target="_blank" rel="noopener noreferrer" title="Falar com os noivos" className="float-btn sm:hidden">
           <FaWhatsapp size={24}/>
         </a>
       )}
